@@ -124,6 +124,11 @@ function tfr_scripts() {
 
 	wp_enqueue_script( 'site-js', get_template_directory_uri() . '/js/site.js', array('jquery'), '1.0.0', true );
 
+	// Load particles.js on home page
+	if( is_front_page() ) {
+		wp_enqueue_script( 'particles-js', get_template_directory_uri() . '/js/particles.min.js', array(), '1.0.0', true );
+	}
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
