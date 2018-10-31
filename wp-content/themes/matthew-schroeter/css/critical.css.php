@@ -1,0 +1,1 @@
+<style>.sticky{display:block}.hentry{margin:0 0 1.5em}.updated:not(.published){display:none}.entry-content,.entry-summary,.page-content{margin:1.5em 0 0}.page-links{clear:both;margin:0 0 1.5em}.comment-content a{word-wrap:break-word}.bypostauthor{display:block}</style>

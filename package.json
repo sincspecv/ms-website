@@ -1,0 +1,37 @@
+{
+  "name": "matthew-schroeter-website",
+  "version": "1.0.0",
+  "description": "<!DOCTYPE html> <html> <head> \t<meta name=\"viewport\" content=\"width=device-width\" /> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> \t<title>WordPress &#8250; ReadMe</title> \t<link rel=\"stylesheet\" href=\"wp-admin/css/install.css?ver=20100228\" type=\"text/css\" /> </head> <body> <h1 id=\"logo\"> \t<a href=\"https://wordpress.org/\"><img alt=\"WordPress\" src=\"wp-admin/images/wordpress-logo.png\" /></a> </h1> <p style=\"text-align: center\">Semantic Personal Publishing Platform</p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "autoprefixer": "^9.3.1",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.3",
+    "css-mqpacker": "^7.0.0",
+    "cssnext": "^1.8.4",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-concat-util": "^0.5.5",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "rucksack-css": "^1.0.2",
+    "run-sequence": "^2.2.1"
+  }
+}
