@@ -1,5 +1,6 @@
 html {
 	box-sizing: border-box;
+	font-size: responsive 14px 18px;
 }
 
 *,
@@ -16,7 +17,7 @@ hr {
 	background-color: $color__background-hr;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
+	margin-bottom: $sizing-l;
 }
 
 @import "lists";

@@ -44,7 +44,7 @@ if ( ! function_exists( 'matthew_schroeter_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'matthew-schroeter' ),
+			'primary-navigation' => esc_html__( 'Primary Navigation', 'matthew-schroeter' ),
 		) );
 
 		/*
@@ -122,11 +122,13 @@ add_action( 'widgets_init', 'matthew_schroeter_widgets_init' );
 function tfr_scripts() {
 	wp_enqueue_style( 'min-css', get_template_directory_uri() . '/css/site.min.css' );
 
-	wp_enqueue_script( 'site-js', get_template_directory_uri() . '/js/site.js', array('jquery'), '1.0.0', true );
+	wp_register_script( 'site-js', get_template_directory_uri() . '/js/site.js', array(), NULL, true );
+	wp_enqueue_script( 'site-js' );
 
 	// Load particles.js on home page
 	if( is_front_page() ) {
-		wp_enqueue_script( 'particles-js', get_template_directory_uri() . '/js/particles.min.js', array(), '1.0.0', true );
+		wp_register_script( 'particles-js', get_template_directory_uri() . '/js/particles.min.js', array(), '', true );
+		wp_enqueue_script( 'particles-js' );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

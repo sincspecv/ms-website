@@ -102,7 +102,7 @@ gulp.task('optimize', function() {
 
 //Run JS through babel
 gulp.task('babelify', () => {
-  return gulp.src(`${themeDir}/js/*.js`)
+  return gulp.src([`${themeDir}/js/custom.js`])
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -124,7 +124,7 @@ gulp.task('babelify', () => {
 });
 
 gulp.task('watch', ['browserSync', 'processCSS', 'prepareCritical', 'babelify'], function(){
-  gulp.watch(`${themeDir}/sass/*.scss`, ['processCSS', 'prepareCritical']);
+  gulp.watch(`${themeDir}/sass/**/*.scss`, ['processCSS', 'prepareCritical']);
   gulp.watch(`${themeDir}/js/*.js`, ['babelify']);
   gulp.watch(`${themeDir}/**/*.php`, browserSync.reload);
 });

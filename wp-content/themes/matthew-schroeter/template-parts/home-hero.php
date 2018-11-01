@@ -6,3 +6,25 @@
  *
  * @package Matthew_Schroeter
  */
+
+$description = get_bloginfo( 'description', 'display' );
+?>
+
+<div id="ms-home-hero">
+    <div class="ms-wrap">
+        <div class="ms-hero-content">
+            <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+            <?php if ( $description || is_customize_preview() ) : ?>
+            <p class="site-description"><?php echo $description; ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<script async>
+  window.addEventListener('DOMContentLoaded', function () {
+    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    particlesJS.load('ms-home-hero', '/wp-content/themes/matthew-schroeter/js/particles.json', function () {
+      // do nothing
+    });
+  });
+</script>

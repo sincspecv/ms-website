@@ -1,8 +1,12 @@
 .main-navigation {
-	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba($white, .65);
+	z-index: 100;
+	padding: $sizing-m 0;
 
 	ul {
 		display: none;
@@ -31,7 +35,17 @@
 			}
 
 			a {
-				width: 200px;
+				display: block;
+				width: auto;
+				color: $grey;
+				text-decoration: none;
+				font-size: $sizing-m;
+				text-transform: uppercase;
+
+				&:hover {
+					color: $red;
+				}
+
 			}
 
 			:hover > a,
@@ -60,7 +74,15 @@
 
 	a {
 		display: block;
+		width: auto;
+		color: $grey;
 		text-decoration: none;
+		font-size: $sizing-m;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $red;
+		}
 	}
 
 	.current_page_item > a,
