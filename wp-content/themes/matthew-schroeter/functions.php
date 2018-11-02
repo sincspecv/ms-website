@@ -117,25 +117,14 @@ function matthew_schroeter_widgets_init() {
 add_action( 'widgets_init', 'matthew_schroeter_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * Helper Functions
  */
-function tfr_scripts() {
-	wp_enqueue_style( 'min-css', get_template_directory_uri() . '/css/site.min.css' );
+require get_template_directory() . '/inc/helpers.php';
 
-	wp_register_script( 'site-js', get_template_directory_uri() . '/js/site.js', array(), NULL, true );
-	wp_enqueue_script( 'site-js' );
-
-	// Load particles.js on home page
-	if( is_front_page() ) {
-		wp_register_script( 'particles-js', get_template_directory_uri() . '/js/particles.min.js', array(), '', true );
-		wp_enqueue_script( 'particles-js' );
-	}
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'tfr_scripts' );
+/**
+ * Enqueue scripts
+ */
+require get_template_directory() . '/inc/scripts.php';
 
 /**
  * Implement the Custom Header feature.
