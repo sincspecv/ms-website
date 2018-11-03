@@ -7,6 +7,8 @@
  * @package Matthew_Schroeter
  */
 
+$postid = tfr_post_id();
+
 get_header();
 
 // Load the hero for the home page
@@ -15,5 +17,19 @@ if ( is_front_page() ) {
 }
 
 get_template_part(  'template-parts/content', 'hook' );
+
+?>
+
+	<div class="ms-section" id="ms-skills">
+			<div class="ms-content">
+                <div id="ms-skills-chart">
+				    <?php echo wpautop( do_shortcode( get_field( 'skills', $postid ) ) ); ?>
+                </div>
+                <div id="ms-skills-image" style="background:url('<?=get_field( 'image', $postid )?>')">
+
+                </div>
+			</div>
+	</div>
+<?php
 
 get_footer();

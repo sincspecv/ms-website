@@ -952,6 +952,32 @@ object {
     margin-bottom: 0; }
 
 /*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+#ms-skills {
+  width: 100%; }
+  #ms-skills .ms-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap; }
+  #ms-skills #ms-skills-chart {
+    width: 100%; }
+    @media screen and (min-width: 481px) {
+      #ms-skills #ms-skills-chart {
+        width: 40%;
+        min-width: 480px; } }
+  #ms-skills #ms-skills-image {
+    width: 100%;
+    background-size: cover; }
+    @media screen and (min-width: 481px) {
+      #ms-skills #ms-skills-image {
+        width: 60%; } }
+
+/*--------------------------------------------------------------
 # Font Awesome
 --------------------------------------------------------------*/
 /*!

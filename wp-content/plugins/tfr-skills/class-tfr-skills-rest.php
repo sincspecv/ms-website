@@ -2,56 +2,114 @@
 /**
  * CLASS TFR_Skills_REST
  *
- * Creates REST endpoint to return skills in JSON format
+ * Creates REST endpoints to return skills in JSON format
  */
 
 if( ! class_exists( 'TFR_Skills_REST' ) ) {
 
 	class TFR_Skills_REST {
 
-		function __construct() {
-			self::init();
-		}
+		/**
+		 * SKILLS POST DATA
+		 *
+		 * @since 1.0.0
+		 * @var array
+		 */
+		private $skills_posts;
 
 		/**
-		 * CREATE REST ENDPOINT(S)
+		 * CONSTRUCT
+		 *
+		 * Get skills from the database and register endpoints
 		 *
 		 * @since 1.0.0
 		 */
-		private function init() {
-			//Get all skills
-			add_action( 'rest_api_init', function () {
-				register_rest_route( 'tfr/v1/skills', '/all', array(
-					'methods' => 'GET',
-					'callback' => array( $this, 'return_all_skills' ),
-				) );
-			} );
-
-
-		}
-
-		/**
-		 * CALLBACK FOR /all ENDPOIMT
-		 *
-		 * Returns all skills title and level
-		 *
-		 * @return mixed|WP_REST_Response
-		 */
-		public function return_all_skills() {
+		function __construct() {
+			// Get skills
 			$query = new WP_Query(array(
 				'post_type' => 'skill',
 				'post_status' => 'publish',
 				'posts_per_page' => -1,
 			));
 
+			$this->skills_posts = $query->posts;
+
+			// Register endpoints
+			self::register_endpoints();
+		}
+
+
+		/**
+		 * CREATE REST ENDPOINT(S)
+		 *
+		 * @since 1.0.0
+		 */
+		private function register_endpoints() {
+			//Get all skills
+			add_action( 'rest_api_init', function () {
+				register_rest_route( 'skills/v1', '/all', array(
+					'methods' => 'GET',
+					'callback' => array( $this, 'return_all_skills' ),
+				) );
+			} );
+
+			// Get skills formatted for chart.js
+			add_action( 'rest_api_init', function () {
+				register_rest_route( 'skills/v1', '/chart', array(
+					'methods' => 'GET',
+					'callback' => array( $this, 'return_skills_chart' ),
+				) );
+			} );
+		}
+
+		/**
+		 * CALLBACK FOR /all ENDPOINT
+		 *
+		 * Returns all skills ID, title and level
+		 *
+		 * @return mixed|WP_REST_Response
+		 */
+		public function return_all_skills() {
+
 			$skills = array();
 
-			foreach ( $query->posts as $skill ) {
+			foreach ( $this->skills_posts as $skill ) {
 				array_push( $skills, array(
-					'skill' => $skill->post_title,
+					'ID'          => $skill->ID,
+					'skill'       => $skill->post_title,
 					'skill_level' => get_post_meta( $skill->ID, 'tfr_skill_level', true ),
 				) );
 			}
+
+			return rest_ensure_response( $skills );
+		}
+
+		/**
+		 * CALLBACK FOR /chart ENDPOINT
+		 *
+		 * Returns all skills title and level formatted for chart.js
+		 *
+		 * @return mixed|WP_REST_Response
+		 */
+		public function return_skills_chart() {
+
+			$skills = array();
+			$labels = array();
+			$data   = array();
+
+			foreach ( $this->skills_posts as $skill ) {
+				// Create labels array
+				array_push( $labels, $skill->post_title );
+
+				// Create data points array
+				array_push( $data, get_post_meta( $skill->ID, 'tfr_skill_level', true ) );
+			}
+
+			// Bring it all together and return it
+			$skills = array(
+				'labels'      => $labels,
+				'data'        => $data,
+			);
 
 			return rest_ensure_response( $skills );
 		}
