@@ -61,7 +61,7 @@ if ( ! function_exists( 'matthew_schroeter_setup' ) ) :
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'matthew_schroeter_custom_background_args', array(
-			'default-color' => 'ffffff',
+			'default-color' => 'fefefe',
 			'default-image' => '',
 		) ) );
 
@@ -152,3 +152,20 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * GitLab integration.
+ */
+if ( ! class_exists( 'MS_Gitlab' ) ) {
+	require get_template_directory() . '/inc/class-ms-gitlab.php';
+}
+
+/**
+ * Cron jobs.
+ */
+require get_template_directory() . '/inc/cron.php';
+
+/**
+ * Shortcodes.
+ */
+require get_template_directory() . '/inc/shortcodes.php';

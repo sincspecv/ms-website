@@ -1,5 +1,6 @@
 // Chart element
 var canvas = document.getElementById('tfr-skills-chart');
+// canvas.parentNode.height = 385;
 
 // Get the chart data and build the chart
 var xhr = new XMLHttpRequest();
@@ -27,15 +28,11 @@ xhr.onload = function() {
 xhr.send();
 
 function buildChart(chartData) {
-  // Make sure chart goes to 100
-  chartData.data[chartData.data.length] = 100;
-
   // Build colors array
-  var colors = [];
-
-  chartData.labels.forEach(function() {
-    colors.push(chartColor);
-  })
+  var colors = chartData.labels.map(function() {
+    // chartColor variable is defined in the shortcode php function
+    return chartColor
+  });
 
   // Create the chart
   var chart = new Chart(canvas, {
@@ -45,30 +42,36 @@ function buildChart(chartData) {
       datasets: [{
         label: '',
         data: chartData.data,
+        fill: false,
         backgroundColor: colors,
         borderColor: colors,
-        borderWidth: .6
+        borderWidth: 0,
+        lineWidth: .1
       }]
     },
     options: {
+      maintainAspectRatio: false,
       legend: {
         display: false
       },
       label: {
         display: false
       },
-      barThickness: 10,
       scales: {
         xAxes: [{
+          display: false,
           ticks: {
             beginAtZero: true,
             display: false,
+            max: 100
           },
           gridLines: {
             display: false
           }
         }],
         yAxes: [{
+          categoryPercentage: 1,
+          barPercentage: .5,
           gridLines: {
             display: false
           }

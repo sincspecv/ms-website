@@ -23,13 +23,15 @@ get_template_part(  'template-parts/content', 'hook' );
 	<div class="ms-section" id="ms-skills">
 			<div class="ms-content">
                 <div id="ms-skills-chart">
-				    <?php echo wpautop( do_shortcode( get_field( 'skills', $postid ) ) ); ?>
+				    <?php echo do_shortcode( get_field( 'skills', $postid ) ); ?>
                 </div>
-                <div id="ms-skills-image" style="background:url('<?=get_field( 'image', $postid )?>')">
-
+                <div id="ms-skills-image" style="background-image:url('<?=get_field( 'image', $postid )?>')">
+                    <?php the_field( 'skills_content', $postid ); ?>
                 </div>
 			</div>
 	</div>
+    <p><?php do_shortcode('[gitlab-commit-count]'); ?> Commits</p>
 <?php
+
 
 get_footer();

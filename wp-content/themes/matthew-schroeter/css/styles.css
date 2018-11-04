@@ -965,17 +965,52 @@ object {
         -ms-flex-flow: row wrap;
             flex-flow: row wrap; }
   #ms-skills #ms-skills-chart {
-    width: 100%; }
+    width: 100%;
+    height: 385px;
+    padding: 1rem;
+    margin-bottom: 3.157rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
     @media screen and (min-width: 481px) {
       #ms-skills #ms-skills-chart {
         width: 40%;
-        min-width: 480px; } }
+        min-width: 400px;
+        max-width: 800px; } }
   #ms-skills #ms-skills-image {
     width: 100%;
-    background-size: cover; }
-    @media screen and (min-width: 481px) {
-      #ms-skills #ms-skills-image {
-        width: 60%; } }
+    min-height: 385px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 3.157rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 600px;
+            flex: 1 1 600px; }
+    #ms-skills #ms-skills-image:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(35, 50, 55, 0.45);
+      z-index: 0; }
+    #ms-skills #ms-skills-image p {
+      position: relative;
+      display: block;
+      margin: 1rem auto;
+      padding: 0.422rem;
+      width: 100%;
+      background: #18121E;
+      color: #fefefe;
+      font-size: 1.777rem;
+      z-index: 1; }
+      #ms-skills #ms-skills-image p:first-of-type {
+        font-size: 2.369rem;
+        font-weight: bold; }
 
 /*--------------------------------------------------------------
 # Font Awesome
