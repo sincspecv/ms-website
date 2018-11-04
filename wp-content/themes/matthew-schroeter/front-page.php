@@ -30,7 +30,6 @@ get_template_part(  'template-parts/content', 'hook' );
                 </div>
 			</div>
 	</div>
-    <p><?php do_shortcode('[gitlab-commit-count]'); ?> Commits</p>
 <?php
 
 

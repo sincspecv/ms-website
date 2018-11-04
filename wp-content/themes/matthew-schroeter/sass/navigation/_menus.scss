@@ -1,12 +1,14 @@
 .main-navigation {
 	display: block;
-	width: 100%;
+	width: 250px;
+	height: 100vh;
 	position: fixed;
 	top: 0;
-	left: 0;
-	background: rgba($white, .65);
+	right: -250px;
+	background: $red;
 	z-index: 100;
 	padding: $sizing-m 0;
+	transition: all .2s ease-in-out;
 
 	ul {
 		display: none;
@@ -90,6 +92,10 @@
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
 	}
+
+	&.toggled {
+		right: 0;
+	}
 }
 
 /* Small menu. */
@@ -98,14 +104,14 @@
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
+//@media screen and (min-width: 37.5em) {
+//	.menu-toggle {
+//		display: none;
+//	}
+//	.main-navigation ul {
+//		display: block;
+//	}
+//}
 
 .comment-navigation,
 .posts-navigation,

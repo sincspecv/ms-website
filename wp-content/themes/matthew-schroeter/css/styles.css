@@ -426,8 +426,20 @@ html {
           box-sizing: inherit; }
 
 body {
-  background: #fefefe;
+  background: #233237;
   /* Fallback for when there is no custom background color defined. */ }
+  body.toggled {
+    overflow: hidden; }
+
+#page-primary {
+  background: #fefefe;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out; }
+  #page-primary.toggled {
+    -webkit-transform: translateX(-250px);
+        -ms-transform: translateX(-250px);
+            transform: translateX(-250px); }
 
 hr {
   background-color: #ccc;
@@ -565,13 +577,17 @@ a {
 --------------------------------------------------------------*/
 .main-navigation {
   display: block;
-  width: 100%;
+  width: 250px;
+  height: 100vh;
   position: fixed;
   top: 0;
-  left: 0;
-  background: rgba(254, 254, 254, 0.65);
+  right: -250px;
+  background: #984B43;
   z-index: 100;
-  padding: 1rem 0; }
+  padding: 1rem 0;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out; }
   .main-navigation ul {
     display: none;
     list-style: none;
@@ -615,17 +631,13 @@ a {
     text-transform: uppercase; }
     .main-navigation a:hover {
       color: #984B43; }
+  .main-navigation.toggled {
+    right: 0; }
 
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block; }
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none; }
-  .main-navigation ul {
-    display: block; } }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -645,6 +657,67 @@ a {
   float: right;
   text-align: right;
   width: 50%; }
+
+/*--------------------------------------------------------------
+## Menu Toggle
+--------------------------------------------------------------*/
+#menu-toggle {
+  z-index: 99999999;
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out; }
+  #menu-toggle span {
+    width: 100%;
+    height: 5px;
+    display: block;
+    background: #984B43;
+    margin-bottom: 7px;
+    border-radius: 4px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; }
+    #menu-toggle span:nth-of-type(4) {
+      background: transparent;
+      font-size: 0.75rem;
+      letter-spacing: 2pt;
+      line-height: 1;
+      color: #984B43;
+      -webkit-transform: translateY(-3px);
+          -ms-transform: translateY(-3px);
+              transform: translateY(-3px); }
+  #menu-toggle.open {
+    right: 265px; }
+    #menu-toggle.open span {
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+    #menu-toggle.open span:first-of-type {
+      -webkit-transform: rotate(135deg);
+          -ms-transform: rotate(135deg);
+              transform: rotate(135deg);
+      position: absolute;
+      top: 15px;
+      width: 50px; }
+    #menu-toggle.open span:nth-of-type(2n) {
+      -webkit-transform: translateX(-100%);
+          -ms-transform: translateX(-100%);
+              transform: translateX(-100%);
+      opacity: 0;
+      position: absolute;
+      top: 15px; }
+    #menu-toggle.open span:nth-of-type(3) {
+      -webkit-transform: rotate(-135deg);
+          -ms-transform: rotate(-135deg);
+              transform: rotate(-135deg);
+      position: absolute;
+      top: 15px;
+      width: 50px; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -939,23 +1012,26 @@ object {
 /*--------------------------------------------------------------
 # Hook
 --------------------------------------------------------------*/
-.ms-hook .ms-content {
-  padding: 3.157rem 0; }
-  .ms-hook .ms-content h2 {
-    font-size: 3.157rem;
-    font-weight: 400;
-    color: #233237;
-    margin: 0; }
-  .ms-hook .ms-content p {
-    font-size: 1.777rem;
-    color: #233237;
-    margin-bottom: 0; }
+.ms-hook {
+  background: #fefefe; }
+  .ms-hook .ms-content {
+    padding: 3.157rem 0; }
+    .ms-hook .ms-content h2 {
+      font-size: 3.157rem;
+      font-weight: 400;
+      color: #233237;
+      margin: 0; }
+    .ms-hook .ms-content p {
+      font-size: 1.777rem;
+      color: #233237;
+      margin-bottom: 0; }
 
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
 #ms-skills {
-  width: 100%; }
+  width: 100%;
+  background: #fefefe; }
   #ms-skills .ms-content {
     display: -webkit-box;
     display: -ms-flexbox;

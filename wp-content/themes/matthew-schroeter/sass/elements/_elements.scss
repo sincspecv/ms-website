@@ -11,6 +11,19 @@ html {
 
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+
+	&.toggled {
+		overflow: hidden;
+	}
+}
+
+#page-primary {
+	background: $white;
+	transition: all .2s ease-in-out;
+
+	&.toggled {
+		transform: translateX(-250px);
+	}
 }
 
 hr {

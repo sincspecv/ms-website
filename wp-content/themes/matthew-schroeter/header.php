@@ -33,21 +33,26 @@
 
 <?php do_action( 'tfr_after_body_tag' ); ?>
 
-<div id="page" class="site">
+<nav id="site-navigation" class="main-navigation">
+	<?php
+	wp_nav_menu( array(
+		'theme_location' => 'primary-navigation',
+		'menu_id'        => 'ms-primary-navigation',
+	) );
+	?>
+</nav>
+
+<div id="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span>MENU</span>
+</div>
+
+<div id="page-primary" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'matthew-schroeter' ); ?></a>
 
 	<header id="masthead" class="site-header">
-        <nav id="site-navigation" class="main-navigation">
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'matthew-schroeter' ); ?></button>
-                <div class="ms-wrap">
-                <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'primary-navigation',
-                    'menu_id'        => 'ms-primary-navigation',
-                ) );
-                ?>
-                </div><!-- .ms-wrap -->
-        </nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
 
