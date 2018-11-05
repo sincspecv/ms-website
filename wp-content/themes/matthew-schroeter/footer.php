@@ -14,18 +14,24 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'matthew-schroeter' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'matthew-schroeter' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'matthew-schroeter' ), 'matthew-schroeter', '<a href="https://thefancyrobot.com">Matthew Schroeter</a>' );
-				?>
+        <div id="footer-about">
+            <?=get_field( 'about', 'options' )?>
+            <ul id="social-links">
+                <?php
+                if ( have_rows( 'fontawesome_links', 'options' ) ) :
+                    while ( have_rows( 'fontawesome_links', 'options' ) ) : the_row();
+                    ?>
+
+                    <li><a href="<?=get_sub_field( 'link' )?>" rel="noopener nofollow" target="_blank"><i class="fab <?=get_sub_field('icon')?>"></i></a></li>
+
+                    <?php
+                    endwhile;
+                endif;
+                ?>
+            </ul>
+        </div>
+		<div id="site-info">
+			<span id="copyright">  &copy; <?=get_field( 'copyright', 'options' )?></span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

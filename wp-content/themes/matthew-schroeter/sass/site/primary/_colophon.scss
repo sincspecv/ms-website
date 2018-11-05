@@ -1,0 +1,51 @@
+#colophon {
+  background: $grey;
+
+  #footer-about {
+    padding: $sizing-jumbo 30px;
+    width: 100%;
+    max-width: 900px;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: $sizing-m;
+      color: $white;
+    }
+
+    p {
+      margin: 0;
+      color: $white;
+    }
+
+    ul {
+      margin: 0;
+      padding: $sizing-m 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        float: left;
+        margin-right: $sizing-s;
+      }
+
+      a, a:visited {
+        color: $white;
+        transition: all .2s ease-in-out;
+        font-size: $sizing-l;
+
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+
+  #site-info {
+    padding: $sizing-m 30px;
+    border-top: 1px solid rgba($white, .25);
+
+    #copyright {
+      color: $white;
+    }
+  }
+}

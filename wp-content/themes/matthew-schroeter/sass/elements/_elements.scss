@@ -44,4 +44,32 @@ figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
 }
 
+p, span, em, li {
+	font-size: $sizing-m;
+}
+
+h1 {
+	font-size: $sizing-jumbo;
+}
+
+h2 {
+	font-size: $sizing-xxl;
+}
+
+h3 {
+	font-size: $sizing-xl;
+}
+
+h4 {
+	font-size: $sizing-l;
+}
+
+h5 {
+	font-size: $sizing-m;
+}
+
+h6 {
+	font-size: $sizing-s;
+}
+
 @import "tables";

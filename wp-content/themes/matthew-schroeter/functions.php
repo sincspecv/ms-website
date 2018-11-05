@@ -169,3 +169,27 @@ require get_template_directory() . '/inc/cron.php';
  * Shortcodes.
  */
 require get_template_directory() . '/inc/shortcodes.php';
+
+
+/**
+ * Add options page for projects
+ */
+if ( function_exists( 'acf_add_options_page' ) ) {
+	// Projects
+	acf_add_options_page(array(
+		'page_title' 	=> 'Projects',
+		'menu_title'	=> 'Projects',
+		'menu_slug' 	=> 'projects-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	// Footer options
+	acf_add_options_page(array(
+		'page_title' 	=> 'Footer Settings',
+		'menu_title'	=> 'Footer',
+		'menu_slug' 	=> 'footer-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+}

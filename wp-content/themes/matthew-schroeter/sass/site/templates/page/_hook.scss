@@ -1,0 +1,19 @@
+.ms-hook {
+  background: $white;
+  .ms-content {
+    padding: $sizing-jumbo 0;
+
+    h2 {
+      font-size: $sizing-jumbo;
+      font-weight: 400;
+      color: $grey;
+      margin: 0
+    }
+
+    p {
+      font-size: $sizing-xl;
+      color: $grey;
+      margin-bottom: 0;
+    }
+  }
+}

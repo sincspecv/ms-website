@@ -1,0 +1,62 @@
+#ms-projects {
+  padding: 0 0 $sizing-jumbo 0;
+
+  .project {
+    margin-bottom: $sizing-jumbo;
+  }
+
+  .project-wrap {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .project-details {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    flex: 1 1 320px;
+    min-width: 320px;
+    padding-right: $sizing-m;
+    margin-bottom: $sizing-m;
+
+    .project-title,
+    .project-description {
+      width: 100%;
+      margin-bottom: $sizing-m;
+      padding: 0 $sizing-m 0 0;
+    }
+
+    .project-link {
+      width: 100%;
+      text-align: center;
+
+      a, a:visited {
+        display: inline-block;
+        border: 2px solid $red;
+        color: $white;
+        background: $red;
+        text-decoration: none;
+        letter-spacing: 2pt;
+        border-radius: 4px;
+        padding: $sizing-xs $sizing-m $sizing-xxs $sizing-m;
+      }
+    }
+  }
+
+  .project-image {
+    position: relative;
+    overflow-y: scroll;
+    width: 60%;
+    min-height: 400px;
+    flex: 1 0 auto;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+}

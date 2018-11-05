@@ -111,11 +111,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "custom/custom";
 
 /*--------------------------------------------------------------
-# Templates
---------------------------------------------------------------*/
-@import "site/templates/templates";
-
-/*--------------------------------------------------------------
 # Font Awesome
 --------------------------------------------------------------*/
-@import "fontawesome/fontawesome";
+$fa-font-path: '/wp-content/themes/matthew-schroeter/sass/fontawesome/webfonts';
+@import "fontawesome/scss/fontawesome.scss";
+@import "fontawesome/scss/brands.scss";
+@import "fontawesome/scss/regular.scss";
+@import "fontawesome/scss/light.scss";
+@import "fontawesome/scss/solid.scss";
+@import "fontawesome/scss/v4-shims.scss";

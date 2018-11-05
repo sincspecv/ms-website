@@ -20,11 +20,3 @@ $description = get_bloginfo( 'description', 'display' );
         </div>
     </div>
 </div>
-<script async>
-  window.addEventListener('DOMContentLoaded', function () {
-    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-    particlesJS.load('ms-home-hero', '/wp-content/themes/matthew-schroeter/js/particles.json', function () {
-      // do nothing
-    });
-  });
-</script>
