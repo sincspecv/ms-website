@@ -59,5 +59,13 @@
         font-weight: bold;
       }
     }
+
+    a, a:visited {
+      color: $white;
+
+      &:hover {
+        color: $red;
+      }
+    }
   }
 }

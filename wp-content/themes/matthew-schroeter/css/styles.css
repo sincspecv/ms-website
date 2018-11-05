@@ -647,7 +647,8 @@ a {
     .main-navigation ul li.focus > ul {
       left: auto; }
   .main-navigation li {
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 3.157rem; }
   .main-navigation a {
     display: block;
     width: auto;
@@ -1052,6 +1053,10 @@ a {
       #ms-skills #ms-skills-image p:first-of-type {
         font-size: 2.369rem;
         font-weight: bold; }
+    #ms-skills #ms-skills-image a, #ms-skills #ms-skills-image a:visited {
+      color: #fefefe; }
+      #ms-skills #ms-skills-image a:hover, #ms-skills #ms-skills-image a:visited:hover {
+        color: #984B43; }
 
 /*--------------------------------------------------------------
 # Projects

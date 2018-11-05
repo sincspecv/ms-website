@@ -203,6 +203,10 @@
       #ms-skills #ms-skills-image p:first-of-type {
         font-size: 2.369rem;
         font-weight: bold; }
+    #ms-skills #ms-skills-image a, #ms-skills #ms-skills-image a:visited {
+      color: #fefefe; }
+      #ms-skills #ms-skills-image a:hover, #ms-skills #ms-skills-image a:visited:hover {
+        color: #984B43; }
 
 /*--------------------------------------------------------------
 # Projects

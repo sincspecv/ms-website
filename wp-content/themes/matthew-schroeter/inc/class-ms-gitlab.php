@@ -64,8 +64,9 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 
 			// Add private token to headers
 			$args['headers'] = array(
-				'Private-Token' => $this->token,
+				'Private-Token' => trim( $this->token ),
 			);
+
 			// Define the URL with endpoint that we will be sending request
 			$url = $this->host . $endpoint;
 
@@ -75,7 +76,7 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 			// Make sure response is valid
 			$response_code = wp_remote_retrieve_response_code( $response );
 			if ( 200 !== $response_code ) {
-				return new WP_Error( $response_code, 'GitLab Response Error' );
+				return new WP_Error( $response_code, 'GitLab Response Error: ', wp_remote_retrieve_body( $response )  );
 			}
 
 			// Return full response so that we have access to body and headers
@@ -118,7 +119,7 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 			$push_count = wp_remote_retrieve_header( $pushes, 'x-total' );
 
 			// Set transient key if it doesn't exist
-			$key = 'ms_gitlab_push_count_' . md5( $this->token, $push_count );
+			$key = '_ms_gitlab_push_count_' . md5( $this->token, $push_count );
 			if ( false === get_transient( $key ) ) {
 				$this->push_count_key = $key;
 			}
@@ -180,7 +181,7 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 			}
 
 			// Set transient key if it doesn't exist
-			$key = 'ms_gitlab_commit_count_' . md5( $this->token, $commit_count );
+			$key = '_ms_gitlab_commit_count_' . md5( $this->token, $commit_count );
 			if ( false === get_transient( $key ) ) {
 				$this->commit_count_key = $key;
 			}
