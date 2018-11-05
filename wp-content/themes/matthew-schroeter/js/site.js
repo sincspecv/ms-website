@@ -10,10 +10,13 @@ menuToggle.addEventListener('click', function () {
   page.classList.toggle('toggled');
   nav.classList.toggle('toggled'); // body.classList.toggle('toggled');
 });
-var projecstWrap = document.querySelector('#ms-projects-wrap');
-var projects = projecstWrap.querySelectorAll('.project-wrap');
-[].forEach.call(projects, function (project) {
-  project.addEventListener('click', function () {
-    project.classList.toggle('zoom');
+var projectsWrap = document.querySelector('#ms-projects-wrap');
+
+if (projectsWrap != undefined) {
+  var projects = projectsWrap.querySelectorAll('.project-wrap');
+  [].forEach.call(projects, function (project) {
+    project.addEventListener('click', function () {
+      project.classList.toggle('zoom');
+    });
   });
-});
+}

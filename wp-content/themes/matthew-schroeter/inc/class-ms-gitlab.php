@@ -47,10 +47,11 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 		 *
 		 * @param $endpoint
 		 * @param array $params
+		 * @param array $args
 		 *
 		 * @return array|bool|WP_Error
 		 */
-		public function get( $endpoint, $params = array() ) {
+		public function get( $endpoint, $params = array(), $args = array() ) {
 			// If no endpoint was defined, we can't do anything
 			if ( empty( $endpoint ) ) {
 				return new WP_Error( 400, 'Variable $endpoint must be defined' );
@@ -62,14 +63,14 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 			}
 
 			// Add private token to headers
-			$params['headers'] = array(
+			$args['headers'] = array(
 				'Private-Token' => $this->token,
 			);
-			// Define the URL with endpoint that we will be sendin request
+			// Define the URL with endpoint that we will be sending request
 			$url = $this->host . $endpoint;
 
 			// Set up the request with supplied params
-			$response = wp_remote_get( $url, $params );
+			$response = wp_remote_get( add_query_arg( $params, $url ), $args );
 
 			// Make sure response is valid
 			$response_code = wp_remote_retrieve_response_code( $response );
@@ -143,11 +144,6 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 			// Get page count from header
 			$page_count = wp_remote_retrieve_header( $pushes, 'x-total-pages' );
 
-			// If the page_count is greater than 1, get the current page
-			if ( ! empty( $page_count ) && $page_count > 1 ) {
-				$page = wp_remote_retrieve_header( $pushes, 'x-page' );
-			}
-
 			// Start counting the commits
 			$commit_count = 0;
 			$body = json_decode( wp_remote_retrieve_body( $pushes ), true );
@@ -160,7 +156,7 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 
 			// If page count is greater than 1, get the rest of the data
 			if ( ! empty( $page_count ) && $page_count > 1 ) {
-				for ( $i = ( absint( $page ) + 1 ); $i <= $page_count; $i++ ) {
+				for ( $i = 1; $i < $page_count; $i++ ) {
 					// Add page number to parameters
 					$params = array( 'page' => $i );
 
@@ -172,8 +168,13 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 
 					// Loop through all push events and add the commit count
 					foreach ( $body as $event ) {
+						// GitLab is returning Merge events as Pushed events,
+						// so we need to filter those out. It is highly unlikely
+						// that there would be more than 10 commits before a push
 						$count = $event['push_data']['commit_count'];
-						$commit_count = $commit_count + $count;
+						if ( $count < 11 ) {
+							$commit_count = $commit_count + $count;
+						}
 					}
 				}
 			}

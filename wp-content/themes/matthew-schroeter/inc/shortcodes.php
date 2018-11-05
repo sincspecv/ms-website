@@ -9,12 +9,13 @@
 function ms_gitlab_commit_count_shortcode( $atts ) {
 	// Get GitLab instance
 	$gitlab = new MS_Gitlab();
-	$transient = $gitlab->commit_count_key;
+	$transient = 'another_temp_gitlab_transient_key';
+//	$transient = $gitlab->commit_count_key;
 
 	// Check if transient is set, and set it if it isn't
 	if ( false === get_transient( $transient ) ) {
 		$commit_count = $gitlab->get_commit_count();
-		set_transient( $transient, $commit_count, 86400 );
+		set_transient( $transient, $commit_count, 60 );
 	}
 
 	// Return the commit count

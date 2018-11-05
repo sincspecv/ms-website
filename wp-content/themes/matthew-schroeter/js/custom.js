@@ -13,11 +13,13 @@ menuToggle.addEventListener('click', () => {
   // body.classList.toggle('toggled');
 });
 
-var projecstWrap = document.querySelector('#ms-projects-wrap');
-var projects     = projecstWrap.querySelectorAll('.project-wrap');
+var projectsWrap = document.querySelector('#ms-projects-wrap');
 
-[].forEach.call(projects, project => {
-  project.addEventListener('click', () => {
-    project.classList.toggle('zoom');
+if(projectsWrap != undefined) {
+  var projects = projectsWrap.querySelectorAll('.project-wrap');
+  [].forEach.call(projects, project => {
+    project.addEventListener('click', () => {
+      project.classList.toggle('zoom');
+    })
   })
-})
+}
