@@ -24,19 +24,25 @@ You won't get away wit just copying the theme I've created into you WordPress in
     * `git clone https://github.com/sincspecv/ms-website.git`
 * Import the post data
     * On your WP Admin screen, select Tools>Import
+    
     ![Tools>Import](tools_screen.jpg)
     * Install and run the WordPress Import Tool
+    
     ![Wordpress Import Tool](wordpress_install_screen.jpg)
     * Select the file `matthewschroeter.wordpress.xml` and run the importer
+    
     ![Run Import Tool](import_screen.jpg)
 * Images in the media library won't be in the database, so you'll have to re-upload them. Just drag and drop all of them into the media library.
+
     ![Media Library](media_library.jpg)
 * Set up projects and footer data
+
     ![Projects and Footer](projects_and_footer.jpg)
 * Add your GitLab API Key to the customizer
     * On you WP Admin screen select Appearance>Customize
     * Select `GitLab API`
     * Enter your key
+    
     ![GitLab Customizer](gitlab_customizer.jpg)
     
 Now you should be all set up and the site should be working
