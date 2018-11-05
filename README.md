@@ -18,7 +18,7 @@ There are a million ways to set up WordPress locally. I'm not going to take the 
 
 ### Install This Repository
 
-You won't get away wit just copying the theme I've created into you WordPress install as I'm also using some plugins that are required. After you have your environment set up following the directions listed above, follow these steps to get set up:
+You won't get away with just copying the theme I've created into your WordPress install as I'm also using some plugins that are required. After you have your environment set up following the directions listed above, follow these steps to get this site installed:
 
 * Go to your environments public directory and clone this repository
     * `git clone https://github.com/sincspecv/ms-website.git`
