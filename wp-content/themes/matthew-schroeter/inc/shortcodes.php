@@ -15,14 +15,14 @@ function ms_gitlab_commit_count_shortcode( $atts ) {
 	if ( false === get_transient( $transient ) ) {
 		$commit_count = $gitlab->get_commit_count();
 		if( ! is_wp_error( $commit_count ) ) {
-			set_transient( $transient, $commit_count, 86400 );
+			set_transient( $transient, $commit_count, 86400 ); // One day is 86400 seconds
 		}
 	}
 
 	// Return the commit count
 	$commit_count = get_transient( $transient );
 	if( ! is_wp_error( $commit_count ) ) {
-		echo $commit_count;
+		echo '<span id="ms-gitlab-commit-count" data-number="' . $commit_count . '">0</span>';
 	}
 }
 

@@ -159,7 +159,7 @@ if ( ! class_exists( 'MS_Gitlab' ) ) {
 			if ( ! empty( $page_count ) && $page_count > 1 ) {
 				for ( $i = 1; $i < $page_count; $i++ ) {
 					// Add page number to parameters
-					$params = array( 'page' => $i );
+					$params = array( 'page' => $i + 1 );
 
 					// Request next page
 					$next_page = $this->get_pushed( $params );

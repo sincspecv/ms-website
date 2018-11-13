@@ -8,13 +8,14 @@
  */
 
 $postid = tfr_post_id();
-$sub_head = get_field( 'sub_heading', $postid );
+$heading = !is_404() ? get_the_title($postid) : '404';
+$sub_head = !is_404() ? get_field( 'sub_heading', $postid ) : 'Page Not Found';
 ?>
 
 <div id="ms-page-hero">
 	<div class="ms-wrap">
 		<div class="ms-hero-content">
-			<h1 class="page-title"><?=get_the_title($postid)?></h1>
+			<h1 class="page-title"><?=$heading?></h1>
 			<?php if ( ! empty( $sub_head ) ) : ?>
 				<p class="sub-heading"><?=do_shortcode( $sub_head )?></p>
 			<?php endif; ?>

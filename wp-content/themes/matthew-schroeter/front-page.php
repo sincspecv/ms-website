@@ -11,11 +11,6 @@ $postid = tfr_post_id();
 
 get_header();
 
-// Load the hero for the home page
-if ( is_front_page() ) {
-    get_template_part( 'template-parts/home', 'hero' );
-}
-
 get_template_part(  'template-parts/content', 'hook' );
 
 ?>

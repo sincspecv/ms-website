@@ -4,6 +4,11 @@
 @import "variables-site/variables-site";
 
 /*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
@@ -18,4 +23,6 @@
 --------------------------------------------------------------*/
 @import "site/templates/front-page/hero";
 @import "site/templates/front-page/hook";
+@import "site/templates/page/hero";
+@import "site/templates/page/hook";
 

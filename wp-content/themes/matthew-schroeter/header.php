@@ -50,10 +50,15 @@
 </div>
 
 <div id="page-primary" class="site">
+
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'matthew-schroeter' ); ?></a>
 
-	<header id="masthead" class="site-header">
-
-	</header><!-- #masthead -->
-
 	<div id="content" class="site-content">
+
+    <?php
+    // Load the hero
+    if ( is_front_page() ) {
+        get_template_part( 'template-parts/home', 'hero' );
+    } else {
+	    get_template_part( 'template-parts/page', 'hero' );
+    }

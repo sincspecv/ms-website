@@ -1283,14 +1283,14 @@ a {
     @media screen and (max-width: 820px) {
       #ms-page-hero h1 {
         font-size: 2.369rem; } }
-  #ms-page-hero p {
+  #ms-page-hero p, #ms-page-hero span {
     font-size: 3.157rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #fefefe;
     margin: 0; }
     @media screen and (max-width: 820px) {
-      #ms-page-hero p {
+      #ms-page-hero p, #ms-page-hero span {
         font-size: 1.777rem; } }
 
 /*--------------------------------------------------------------

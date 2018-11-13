@@ -192,4 +192,13 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+
+	// 404 options
+	acf_add_options_page(array(
+		'page_title' 	=> '404 Page Settings',
+		'menu_title'	=> '404 Page',
+		'menu_slug' 	=> '404-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 }

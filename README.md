@@ -22,6 +22,7 @@ You won't get away with just copying the theme I've created into your WordPress 
 
 * Go to your environments public directory and clone this repository
     * `git clone https://github.com/sincspecv/ms-website.git`
+* [Download WordPress](https://wordpress.org/download/) and copy all files except for the `wp-content` folder into your working directory and set up your wp-config file
 * Import the post data
     * On your WP Admin screen, select Tools>Import
     
