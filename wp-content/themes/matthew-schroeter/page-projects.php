@@ -5,9 +5,6 @@
 
 get_header();
 
-// Hero
-get_template_part( 'template-parts/page', 'hero' );
-
 ?>
 
 	<div id="primary" class="content-area">
