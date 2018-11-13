@@ -35,13 +35,12 @@ if(projectsWrap != undefined) {
  */
 
 // Wait for page to load and then count up
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   var commitCount = document.querySelector('#ms-gitlab-commit-count');
 
   if(commitCount != undefined) {
     // Get commit count and reset to zero
     var stopNumber = parseInt(commitCount.dataset.number);
-    console.log(stopNumber);
     commitCount.innerHTML = '0';
     // Start counting
     countUp(commitCount, stopNumber);
